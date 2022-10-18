@@ -15,17 +15,17 @@ pipeline{
                         // bat '''
                         //     docker login -u AWS -p (aws ecr-public get-login-password --region us-east-1) public.ecr.aws/h4h9p1u5
                         // '''
-                         bat '''
+                        bat '''
                             aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h4h9p1u5
                         '''
                         bat '''
                             docker build -t app-cicd .
                         '''
                         bat ''' 
-                            docker tag app-cicd:latest public.ecr.aws/h4h9p1u5/app-cicd:""$BUILD_ID""
+                            docker tag app-cicd:latest public.ecr.aws/h4h9p1u5/app-cicd:latest
                         '''
                         bat ''' 
-                            docker push public.ecr.aws/h4h9p1u5/app-cicd:""$BUILD_ID"" 
+                            docker push public.ecr.aws/h4h9p1u5/app-cicd:latest
                         '''
                     }
                 }
