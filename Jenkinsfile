@@ -13,7 +13,7 @@ pipeline{
 
                     withEnv (["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID}", "AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY}", "AWS_DEFAULT_REGION=${env.AWS_DEFAULT_REGION}"]) {
                         bat '''
-                            docker login -u AWS -p (aws ecr-public get-login-password) public.ecr.aws/h4h9p1u5
+                            docker login -u AWS -p (aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin) public.ecr.aws/h4h9p1u5
                         '''
                         bat '''
                             docker build -t app-cicd .
