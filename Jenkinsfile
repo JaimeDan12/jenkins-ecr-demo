@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage ("Build") {
             steps{
-                sh  'printenv' // imprime les variables d'environement
+                bat  'printenv' // imprime les variables d'environement
                 
             }
         }
