@@ -1,12 +1,12 @@
 pipeline{
     agent any 
     stages{
-        stage ("Build") {
-            steps{
-                bat  'printenv' // imprime les variables d'environement
+        // stage ("Build") {
+        //     steps{
+        //         bat  'printenv' // imprime les variables d'environement
                 
-            }
-        }
+        //     }
+        // }
         stage ('Push to ECR'){
             steps{
                 script{
